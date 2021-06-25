@@ -1,0 +1,28 @@
+overwrite: true
+# MEMO: schemaの取得先
+schema: 'http://localhost:8081/v1/graphql'
+headers:
+  x-hasura-role: 'admin'
+# MEMO: hooks生成時に参照するクエリの場所を指定
+documents:
+  - 'src/hasura/**/*.gql'
+generates:
+  src/hasura/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations' # クエリ書いたら対応する型が生成される
+      - 'typescript-react-apollo' # クエリ書いたら対応するhookが生成される
+    config:
+      skipTypename: false
+      withComponent: false
+      withHooks: true
+      withHOC: false
+      # よく使う型を定義できる
+      scalars:
+        bigint: number
+        timestamp: string
+        uuid: string
+  # MEMO: IDEの補完とかに使えるから出力させておく
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'

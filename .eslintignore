@@ -1,0 +1,6 @@
+**/node_modules/*
+**/out/*
+**/.next/*
+*config.js
+src/hasura/graphql.ts
+graphql.schema.json

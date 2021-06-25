@@ -1,0 +1,34 @@
+#!/bin/bash -xe
+
+# MEMO: GCPの情報
+PROJECT_ID="appraisal-lab"
+NEXT_PUBLIC_GRAPHQL_URL="https://hasura-sever-tomi-g6b36s3ysa-an.a.run.app"
+CLUSTER="appraisal-tomizawa-cluster"
+
+# MEMO: buildに使うやつ
+IMAGE_TAG=$(date +'%s')
+IMAGE_NAME="asia.gcr.io/$PROJECT_ID/front-tomizawa"
+docker build \
+    --build-arg NEXT_PUBLIC_GRAPHQL_URL=$NEXT_PUBLIC_GRAPHQL_URL \
+    --build-arg NUXT_ENV_RELEASE="$1" \
+    -t $IMAGE_NAME:"$IMAGE_TAG" \
+    -t $IMAGE_NAME:latest .
+docker push $IMAGE_NAME:"$IMAGE_TAG"
+docker push $IMAGE_NAME:latest
+
+# MEMO: 強制的にconfigを書き換えるので注意
+# MEMO: プロジェクトをセットし、クラスタの向き先を変更
+gcloud config set project $PROJECT_ID
+gcloud container clusters get-credentials $CLUSTER --zone asia-northeast1-a
+
+RELEASE="$1-front"
+CHART="chart"
+# MEMO: IMAGE_TAGはタイムスタンプが入っているのでそれで該当のイメージを取ってくる
+FLAGS="
+        -f chart/values.yaml
+        --set-string deployment.image.tag=$IMAGE_TAG
+        --set-string release=$1
+        --install
+    "
+
+helm upgrade $RELEASE $CHART $FLAGS
