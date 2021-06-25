@@ -1,0 +1,53 @@
+name: Deploy storybook to chromatic
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  node-version: '16.x'
+
+jobs:
+  deploy-storybook:
+    name: Deploy storybook to chromatic
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.node-version }}
+
+      # See: https://github.com/actions/cache/blob/main/examples.md#node---yarn
+      - name: Fetch node_modules cache
+        id: node_modules_cache_id
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-v${{ env.node-version }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-node-v${{ env.node-version }}-deps-
+
+      - name: Install
+        run: yarn install --check-files --frozen-lockfile --non-interactive --prefer-offline
+
+      # See: https://github.com/chromaui/action#getting-started
+      - name: Publish to Chromatic
+        if: github.ref != 'refs/heads/master'
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # NOTE: your workflow will still stop and fail if your Storybook contains stories that error.
+          exitZeroOnChanges: true
+
+      - name: Publish to Chromatic on master branch
+        if: github.ref == 'refs/heads/master'
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # NOTE: masterブランチのときは差分がっても受け入れる
+          autoAcceptChanges: true

@@ -1,0 +1,14 @@
+node_modules
+.next
+yarn.lock
+package-lock.json
+public
+cashes/*
+src/api_client/*
+.storybook/fixtures
+*.config.js
+.*lintrc.js
+chart
+codegen.yml
+src/hasura/graphql.ts
+graphql.schema.json
