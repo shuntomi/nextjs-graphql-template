@@ -11,7 +11,7 @@ type IProps = {
   onClick: () => void;
 };
 
-export const Presenter = (props: IProps): JSX.Element => {
+export const Presenter: React.VFC<IProps> = (props) => {
   const { incrementNumber, count, onClick } = props;
 
   return (

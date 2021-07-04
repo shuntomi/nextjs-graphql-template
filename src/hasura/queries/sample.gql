@@ -1,6 +1,8 @@
-query sample {
-  sample {
-    id
-    name
-  }
-}
+# NOTE: GraphQLクエリをここに書く
+
+#query sample {
+#  sample {
+#    id
+#    name
+#  }
+#}

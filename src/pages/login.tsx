@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 
-// eslint-disable-next-line import/no-default-export
 export default function Index(): JSX.Element {
   return (
     <>
@@ -9,6 +8,8 @@ export default function Index(): JSX.Element {
     </>
   );
 }
+
+// NOTE: styled-component
 const Title = styled.h1`
   color: slategray;
   font-size: xx-large;

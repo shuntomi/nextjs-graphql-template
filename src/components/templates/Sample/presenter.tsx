@@ -1,20 +1,19 @@
----
-to: "<%= have_container ? null : `${targetDir}/presenter.tsx` %>"
----
-
 import React from 'react';
 import styled from 'styled-components';
 
 type IProps = {
-  name: string;
+  incrementNumber: number;
+  count: number;
+  onClick: () => void;
 };
 
 export const Presenter: React.VFC<IProps> = (props) => {
-  const { name } = props;
+  const { incrementNumber, count, onClick } = props;
 
   return (
     <>
-      <Title>{`Hello ${name}!`}</Title>
+      <Title>{`count number: ${count}`}</Title>
+      <button onClick={onClick} type={'button'}>{`+${incrementNumber}`}</button>
 
       {/* NOTE: 子コンポーネントへのバケツリレーサンプル */}
       {/* <ChildComponent */}
@@ -26,5 +25,6 @@ export const Presenter: React.VFC<IProps> = (props) => {
 
 // NOTE: styled-component
 const Title = styled.h2`
+  color: gray;
   font-weight: bold;
 `;
