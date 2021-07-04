@@ -2,8 +2,6 @@
   "version": "0.1",
   "language": "en",
   "words": [
-    "bulma",
-    "buysell",
     "codegen",
     "chromaui",
     "deps",
@@ -16,11 +14,9 @@
     "healthz",
     "hoge",
     "hygen",
-    "minireset",
     "nuxt",
     "parens",
     "pathpida",
-    "tomizawa",
     "typecheck",
     "typeof",
     "Vercel"

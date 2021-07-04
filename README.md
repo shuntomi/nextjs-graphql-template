@@ -1,7 +1,12 @@
 # Nest.js graphqlのテンプレート
-## 開発系
-### 静的解析ツール
-* eslint airbnb
+## コンポーネント
+* Atomic Design
+* Presentational Container
+  * Presenter: 描写に関係する部分
+  * Container: ロジックに関する部分
+
+## 静的解析ツール
+* eslint: airbnb rules
 * prettier
 * cspell
   
@@ -36,3 +41,12 @@ module install - lint      --- build
 # 便利系
 * pathpida
 * font awesome
+
+# hygen
+```
+# componentを作成(StoryBookとTest付き可)
+hygen new component
+
+# pageを作成
+hygen new page
+```

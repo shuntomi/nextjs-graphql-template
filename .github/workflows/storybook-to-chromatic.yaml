@@ -1,7 +1,10 @@
 name: Deploy storybook to chromatic
 
 on:
-  push:
+  #  NOTE: chromaticの設定を済ませたらCIに組み込む
+  #  push:
+  #    paths:
+  #      - 'src/components/**'
   workflow_dispatch:
 
 env:
@@ -49,5 +52,5 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          # NOTE: masterブランチのときは差分がっても受け入れる
+          # NOTE: masterブランチのときは差分があっても受け入れる
           autoAcceptChanges: true

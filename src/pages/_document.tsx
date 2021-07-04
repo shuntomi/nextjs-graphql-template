@@ -2,7 +2,6 @@ import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 // See: https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_document.js
-// eslint-disable-next-line import/no-default-export
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<{
     styles: JSX.Element;

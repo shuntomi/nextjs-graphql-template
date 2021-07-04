@@ -1,11 +1,11 @@
 module.exports = {
-  prompt: ({ inquirer, args }) => {
+  prompt: ({ inquirer }) => {
     const questions = [
       {
         type: 'select',
         name: 'category',
         message: 'Which Atomic Design category?',
-        choices: ['molecules', 'organisms', 'templates', 'layouts'],
+        choices: ['atoms', 'molecules', 'organisms', 'templates'],
       },
       {
         type: 'input',

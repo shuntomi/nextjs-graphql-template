@@ -1,7 +1,3 @@
----
-to: "<%= have_container ? `${targetDir}/container.tsx` : null %>"
----
-
 import React, { useCallback, useState } from 'react';
 import { Presenter } from './presenter';
 
@@ -14,7 +10,10 @@ export const Container: React.VFC<IProps> = (props) => {
 
   // NOTE: Add business logic
   const [count, setCount] = useState(0);
-  const onClick = useCallback(() => setCount(count + incrementNumber), [count, incrementNumber]);
+  const onClick = useCallback(
+    () => setCount(count + incrementNumber),
+    [count, incrementNumber]
+  );
 
   return (
     <Presenter

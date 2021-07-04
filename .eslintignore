@@ -2,5 +2,6 @@
 **/out/*
 **/.next/*
 *config.js
+.eslintrc.js
 src/hasura/graphql.ts
 graphql.schema.json
