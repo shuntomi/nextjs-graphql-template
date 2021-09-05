@@ -5,9 +5,9 @@ headers:
   x-hasura-role: 'admin'
 # MEMO: hooks生成時に参照するクエリの場所を指定
 documents:
-  - 'src/hasura/**/*.gql'
+  - 'src/graphql/**/*.gql'
 generates:
-  src/hasura/graphql.ts:
+  src/graphql/graphql.ts:
     plugins:
       - 'typescript'
       - 'typescript-operations' # クエリ書いたら対応する型が生成される
@@ -22,6 +22,10 @@ generates:
         bigint: number
         timestamp: string
         uuid: string
+      # See: https://www.graphql-code-generator.com/docs/plugins/typescript-operations
+      namingConvention:
+        typeNames: 'pascal-case#pascalCase'
+        enumValues: 'upper-case#upperCase'
   # MEMO: IDEの補完とかに使えるから出力させておく
   ./graphql.schema.json:
     plugins:
