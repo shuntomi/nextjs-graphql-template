@@ -33,6 +33,7 @@ jobs:
             ${{ runner.os }}-node-v${{ env.node-version }}-deps-
 
       - name: Install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --check-files --frozen-lockfile --non-interactive --prefer-offline
 
   lint:
