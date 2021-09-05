@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",
-    "dev:path": "pathpida --watch",
+    "dev:path": "pathpida --enableStatic --ignorePath .gitignore -o src/utilities --watch",
     "dev:codegen": "graphql-codegen --config codegen.yml --watch",
     "lint": "eslint ./src --ext ts --ext tsx --ext js",
     "lint-fix": "yarn lint --fix && yarn format --loglevel error",
@@ -80,7 +80,7 @@
     "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
-    "pathpida": "^0.15.2",
+    "pathpida": "^0.16.0",
     "prettier": "^2.3.1",
     "react-test-renderer": "^16.9.0",
     "storybook": "^6.2.9",
