@@ -13,6 +13,7 @@
     "lint-fix": "yarn lint --fix && yarn format --loglevel error",
     "format": "prettier --write .",
     "build": "next build",
+    "export": "next export",
     "test": "jest",
     "typecheck": "tsc",
     "start": "next start",
