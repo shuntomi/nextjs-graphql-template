@@ -83,6 +83,7 @@
     "prettier": "^2.3.1",
     "react-test-renderer": "^16.9.0",
     "storybook": "^6.2.9",
+    "storybook-addon-apollo-client": "^4.0.9",
     "typescript": "^3.9.7",
     "yaml-loader": "0.6.0"
   }
