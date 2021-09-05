@@ -2,10 +2,8 @@
 to: <%= targetDir %><%= name %>.tsx
 ---
 
-export default function <%= name %>() {
-  return (
-    <>
-      <p>sample</p>
-    </>
-  )
-}
+import React from 'react';
+
+const <%= name.charAt(0).toUpperCase() + name.slice(1) %>: React.VFC = () => <p>sample</p>
+
+export default <%= name.charAt(0).toUpperCase() + name.slice(1) %>

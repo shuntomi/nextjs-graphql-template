@@ -1,5 +1,5 @@
 module.exports = {
-  prompt: ({ inquirer }) => {
+  prompt: ({ inquirer, args }) => {
     const questions = [
       {
         type: 'input',
