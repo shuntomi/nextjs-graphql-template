@@ -1,8 +1,0 @@
-# NOTE: GraphQLクエリをここに書く
-
-#query sample {
-#  sample {
-#    id
-#    name
-#  }
-#}

@@ -17,7 +17,7 @@
     "test": "jest",
     "typecheck": "tsc",
     "start": "next start",
-    "spellcheck": "cspell \"**/*.{css,scss,js,jsx,ts,tsx,md,yaml,yml,json}\"",
+    "spellcheck": "cspell \"**/*.{css,scss,js,jsx,ts,tsx,md,yaml,yml,json,gql,graphql}\"",
     "prepare": "husky install",
     "generate": "graphql-codegen --config codegen.yml",
     "storybook": "start-storybook -p 6006",

@@ -1,36 +1,45 @@
-# Nest.js graphqlのテンプレート
+# Nest.js graphql のテンプレート
+
 ## コンポーネント
-* Atomic Design
-* Presentational Container
-  * Presenter: 描写に関係する部分
-  * Container: ロジックに関する部分
+
+- Atomic Design
+- Presentational Container
+  - Presenter: 描写に関係する部分
+  - Container: ロジックに関する部分
 
 ## 静的解析ツール
-* eslint: airbnb rules
-* prettier
-* cspell
-  
+
+- eslint: airbnb rules
+- prettier
+- cspell
+
 ## テスト系
-* Unitテスト: jest
-* 回帰テスト: storybook + chromatic(追加設定必要)
+
+- Unit テスト: jest
+- 回帰テスト: storybook + chromatic(追加設定必要)
 
 ## style
+
 styled-component
 
 ## GraphQL
-* apollo
+
+- apollo
 
 ## Git Hooks
-* pre-commit
-    * lint --fix
-    * prettier
-    * cspell
-* pre-push
-    * jest
-    * type check
-    
+
+- pre-commit
+  - lint --fix
+  - prettier
+  - cspell
+- pre-push
+  - jest
+  - type check
+
 ## CI
+
 GitHub Actions
+
 ```
 module install - lint      --- build
               |- cspell    -|
@@ -39,10 +48,12 @@ module install - lint      --- build
 ```
 
 # 便利系
-* pathpida
-* font awesome
+
+- pathpida
+- font awesome
 
 # hygen
+
 ```
 # componentを作成(StoryBookとTest付き可)
 hygen new component
