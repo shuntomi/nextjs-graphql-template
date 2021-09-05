@@ -30,10 +30,8 @@ styled-component
 
 - pre-commit
   - lint --fix
-  - prettier
   - cspell
 - pre-push
-  - jest
   - type check
 
 ## CI
@@ -41,10 +39,10 @@ styled-component
 GitHub Actions
 
 ```
-module install - lint      --- build
-              |- cspell    -|
-              |- typecheck -|
-              |- test      -|
+module install - lint
+              |- cspell
+              |- typecheck
+              |- test
 ```
 
 # 便利系
@@ -55,9 +53,12 @@ module install - lint      --- build
 # hygen
 
 ```
-# componentを作成(StoryBookとTest付き可)
-hygen new component
+# ページを作成する
+$ yarn hygen new page
 
-# pageを作成
-hygen new page
+# コンポーネントを生成する
+$ yarn hygen new component
+
+# GraphQLクエリを生成する
+$ yarn hygen new graphql
 ```
