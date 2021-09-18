@@ -1,1 +1,1 @@
-export { Container as Sample } from './container';
+export { Presenter as Sample } from './presenter';
