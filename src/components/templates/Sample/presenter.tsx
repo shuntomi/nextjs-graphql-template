@@ -1,30 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Container } from '@mui/material';
 
-type IProps = {
-  incrementNumber: number;
-  count: number;
-  onClick: () => void;
-};
+export const Presenter: React.VFC = () => (
+  <StyledContainer>
+    <h1>サンプルページ</h1>
 
-export const Presenter: React.VFC<IProps> = (props) => {
-  const { incrementNumber, count, onClick } = props;
+    <div>
+      <ul>
+        <li>Material UI</li>
+        <li>Styled Component</li>
+      </ul>
+    </div>
+  </StyledContainer>
+);
 
-  return (
-    <>
-      <Title>{`count number: ${count}`}</Title>
-      <button onClick={onClick} type={'button'}>{`+${incrementNumber}`}</button>
-
-      {/* NOTE: 子コンポーネントへのバケツリレーサンプル */}
-      {/* <ChildComponent */}
-      {/* count={props.count}  */}
-      {/* /> */}
-    </>
-  );
-};
-
-// NOTE: styled-component
-const Title = styled.h2`
-  color: gray;
-  font-weight: bold;
+const StyledContainer = styled(Container)`
+  width: 80vw;
+  height: 50vh;
+  margin: auto;
+  padding: 0;
+  background-color: white;
 `;
